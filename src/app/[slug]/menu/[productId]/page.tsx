@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getProductById } from "@/data/get-product-by-id";
 
+import ProductDetail from "./components/product-detail";
 import ProductHeader from "./components/product-header";
 
 interface ProductPageProps {
@@ -10,20 +11,17 @@ interface ProductPageProps {
 
 const ProductPage = async ({ params }: ProductPageProps) => {
     const { slug, productId } = await params;
-    console.log(slug, productId);
     const product = await getProductById(productId);
     
-    if (!product){
-        return notFound();
-    }
+    if (!product) notFound();
+
+    if (product.restaurant.slug.toUpperCase() != slug.toUpperCase()) notFound();
 
     return ( 
-        <>
-            <ProductHeader product={product}/>
-            <h1>
-                {slug} - {productId}
-            </h1>
-        </>
+        <div className="flex h-full flex-col">
+            <ProductHeader product={product} />
+            <ProductDetail product={product} />
+        </div>
     );
 }
  
