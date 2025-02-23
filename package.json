@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "npx prisma migrate dev",
+    "seed": "npx prisma db seed",
+    "shadcn": "npx shadcn@2.3.0 add"
   },
   "prisma": {
     "seed": "ts-node ./prisma/seed.ts"
