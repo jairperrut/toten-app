@@ -14,18 +14,18 @@ ALTER TABLE "OrderItem" DROP CONSTRAINT "OrderItem_productId_fkey";
 DROP TABLE "OrderItem";
 
 -- CreateTable
-CREATE TABLE "OrderProdcut" (
+CREATE TABLE "OrderProduct" (
     "id" TEXT NOT NULL,
     "quantity" INTEGER NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
     "productId" TEXT NOT NULL,
     "orderId" INTEGER NOT NULL,
 
-    CONSTRAINT "OrderProdcut_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "OrderProduct_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey
-ALTER TABLE "OrderProdcut" ADD CONSTRAINT "OrderProdcut_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "OrderProduct" ADD CONSTRAINT "OrderProduct_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "OrderProdcut" ADD CONSTRAINT "OrderProdcut_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "OrderProduct" ADD CONSTRAINT "OrderProduct_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order"("id") ON DELETE CASCADE ON UPDATE CASCADE;
