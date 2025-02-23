@@ -1,0 +1,23 @@
+services:
+  next-mac-donalds:
+    image: node:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    command: npm run dev
+    working_dir: /app
+  
+  postgres-mac-donalds:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=mc_user
+      - POSTGRES_PASSWORD=mc_password
+      - POSTGRES_DB=mac_donalds
+    volumes:
+      - ./data:/var/lib/postgresql/data
