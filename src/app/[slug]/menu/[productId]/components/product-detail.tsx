@@ -7,7 +7,6 @@ import { useContext, useState } from "react";
 import { formatCurrency } from "@/app/helpers/format-currency";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 import CartSheet from "../../components/cart-sheet";
 import { CartContext } from "../../context/cart";
@@ -26,7 +25,7 @@ interface ProductDetailProps {
 }
 
 const ProductDetail = ({ product }: ProductDetailProps) => {
-    const { toggleCart } = useContext(CartContext)
+    const { toggleCart, addProduct } = useContext(CartContext)
     const [quantity, setQuantity] = useState<number>(1);
     const handleIncrement = () => {
         setQuantity((prev) => prev + 1);
@@ -38,7 +37,13 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
         });
     }
 
-    const handleAddToCart = () => toggleCart();
+    const handleAddToCart = () => {
+        addProduct({
+            ...product,
+            quantity
+        })
+        toggleCart();
+    };
 
     return ( 
         <>
