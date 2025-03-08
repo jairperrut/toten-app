@@ -113,19 +113,19 @@ const FinishOrderDialog = ({open, onOpenChange}: FinishOrderDialogProps) => {
                                 </FormItem>
                                 )}
                             />
-                                <DrawerFooter>
-                                    <Button
-                                        disabled={isPending}
-                                        variant="destructive"
-                                        className="w-full rounded-full"
-                                        type="submit">
-                                            {isPending && <Loader2Icon className="animate-spin"/>}
-                                            Finalizar
-                                        </Button>
-                                    <DrawerClose asChild>
-                                        <Button className="w-full rounded-full" variant="outline">Cancelar</Button>
-                                    </DrawerClose>
-                                </DrawerFooter>
+                            <DrawerFooter>
+                                <Button
+                                    disabled={isPending}
+                                    variant="destructive"
+                                    className="w-full rounded-full"
+                                    type="submit">
+                                        {isPending && <Loader2Icon className="animate-spin"/>}
+                                        Finalizar
+                                    </Button>
+                                <DrawerClose asChild>
+                                    <Button className="w-full rounded-full" variant="outline">Cancelar</Button>
+                                </DrawerClose>
+                            </DrawerFooter>
                         </form>
                     </Form>
                 </div>

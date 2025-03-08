@@ -24,7 +24,8 @@
 				"esbenp.prettier-vscode",
 				"bradlc.vscode-tailwindcss",
 				"Prisma.prisma",
-				"burkeholland.simple-react-snippets"
+				"burkeholland.simple-react-snippets",
+				"eamodio.gitlens"
 			]
 		}
 	}
